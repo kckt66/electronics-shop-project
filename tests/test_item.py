@@ -25,3 +25,11 @@ def test_string_to_number(item):
 
 def test_instantiate_from_csv(item):
     assert item.instantiate_from_csv() is None
+
+
+def test_repr(item):
+    assert item.__repr__() == "Item('Ноутбук', 20000, 5)"
+
+
+def test_str(item):
+    assert  item.__str__() == 'Ноутбук'
