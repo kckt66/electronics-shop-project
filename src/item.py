@@ -1,5 +1,5 @@
 import csv
-# import math
+
 
 
 class Item:
@@ -66,8 +66,7 @@ class Item:
         """
         Класс-метод, инициализирующий экземпляры класса `Item` данными из файла _src/items.csv_
         """
-
-        with open("/Users/kctk/electronics-shop-project/src/items.csv", newline='', encoding='windows-1251') as csvfile:
+        with open("../../electronics-shop-project/src/items.csv", newline='', encoding='windows-1251') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 cls(row['name'], row['price'], row['quantity'])
@@ -81,8 +80,15 @@ class Item:
         """
         i = string[0]
         return int(i)
-        # try:
-        #     int(string)
-        #     return int(string)
-        # except ValueError:
-        #     return math.floor(float(string))
+
+    # def __add__(self, other):
+    #     """
+    #     Сложение экземпляром родительского класса и дочернего
+    #     """
+    #     if isinstance(other, self.__class__):
+    #         raise Exception('ff')
+    #     return self.quantity + other.quantity
+    def __add__(self, other):
+        if isinstance(other, self.__class__):
+            return self.quantity + other.quantity
+        raise Exception
