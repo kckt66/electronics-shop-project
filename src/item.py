@@ -81,14 +81,11 @@ class Item:
         i = string[0]
         return int(i)
 
-    # def __add__(self, other):
-    #     """
-    #     Сложение экземпляром родительского класса и дочернего
-    #     """
-    #     if isinstance(other, self.__class__):
-    #         raise Exception('ff')
-    #     return self.quantity + other.quantity
+
     def __add__(self, other):
+        """
+        Сложение экземпляром родительского класса и дочернего
+        """
         if isinstance(other, self.__class__):
             return self.quantity + other.quantity
         raise Exception
