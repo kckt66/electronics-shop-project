@@ -3,9 +3,11 @@ import pytest
 from src.item import Item
 from src.phone import Phone
 
+
 @pytest.fixture
 def item():
     return Item("Ноутбук", 20000, 5)
+
 
 @pytest.fixture()
 def phone():
@@ -42,3 +44,7 @@ def test_str(item):
 def test_add(item, phone):
     assert item + phone == 10
     assert phone + phone == 10
+
+
+def test_name(item):
+    assert item.name == 'Ноутбук'
