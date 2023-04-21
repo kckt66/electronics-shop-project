@@ -45,6 +45,15 @@ def test_add(item, phone):
     assert item + phone == 10
     assert phone + phone == 10
 
+    with pytest.raises(Exception):
+        item + 10
 
-def test_name(item):
-    assert item.name == 'Ноутбук'
+
+def test_name_setter(item):
+    item.name = 'Смартфон'
+    assert item.name == 'Смартфон'
+
+
+    with pytest.raises(ValueError):
+        item.name = 'СуперНоутбук'
+
