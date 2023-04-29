@@ -53,7 +53,5 @@ def test_name_setter(item):
     item.name = 'Смартфон'
     assert item.name == 'Смартфон'
 
-
     with pytest.raises(ValueError):
         item.name = 'СуперНоутбук'
-
