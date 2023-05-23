@@ -1,6 +1,9 @@
 import csv
 
 
+class InstantiateCSVError(Exception):
+    pass
+
 
 class Item:
     """
@@ -73,6 +76,9 @@ class Item:
                     cls(row['name'], row['price'], row['quantity'])
         except FileNotFoundError:
             raise FileNotFoundError('FileNotFoundError: Отсутствует файл item.csv')
+        except KeyError:
+            raise InstantiateCSVError('InstantiateCSVError: Файл item.csv поврежден')
+
 
 
 
