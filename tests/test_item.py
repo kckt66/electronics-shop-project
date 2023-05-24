@@ -33,6 +33,18 @@ def test_instantiate_from_csv(item):
     assert item.instantiate_from_csv() is None
 
 
+def test_instantiate_from_csv_error(file_name="../src/items.csv"):
+
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv(file_name)
+
+    with pytest.raises(KeyError):
+        Item.instantiate_from_csv(file_name)
+
+
+
+
+
 def test_repr(item):
     assert item.__repr__() == "Item('Ноутбук', 20000, 5)"
 

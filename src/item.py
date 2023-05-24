@@ -65,12 +65,12 @@ class Item:
 
 
     @classmethod
-    def instantiate_from_csv(cls):
+    def instantiate_from_csv(cls, file_name="../src/items.csv"):
         """
         Класс-метод, инициализирующий экземпляры класса `Item` данными из файла _src/items.csv_
         """
         try:
-            with open("../src/items.csv", newline='', encoding='windows-1251') as csvfile:
+            with open(file_name, newline='', encoding='windows-1251') as csvfile:
                 reader = csv.DictReader(csvfile)
                 for row in reader:
                     cls(row['name'], row['price'], row['quantity'])
