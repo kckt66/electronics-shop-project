@@ -2,6 +2,7 @@
 import pytest
 from src.item import Item
 from src.phone import Phone
+from src.item import InstantiateCSVError
 
 
 @pytest.fixture
@@ -33,16 +34,16 @@ def test_instantiate_from_csv(item):
     assert item.instantiate_from_csv() is None
 
 
-def test_instantiate_from_csv_error(file_name="../src/items.csv"):
-
+def test_instantiate_from_csv_error():
+    file_name = "../src/empty.csv"
     with pytest.raises(FileNotFoundError):
         Item.instantiate_from_csv(file_name)
 
-    with pytest.raises(KeyError):
+
+def test_instantiate_from_csv_key_error():
+    file_name = "../src/wrong.csv"
+    with pytest.raises(InstantiateCSVError):
         Item.instantiate_from_csv(file_name)
-
-
-
 
 
 def test_repr(item):
